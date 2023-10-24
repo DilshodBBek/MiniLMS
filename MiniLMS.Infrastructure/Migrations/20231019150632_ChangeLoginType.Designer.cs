@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MiniLMS.Infrastructure.Migrations
 {
     [DbContext(typeof(MiniLMSDbContext))]
-    [Migration("20231003162029_initDb")]
-    partial class initDb
+    [Migration("20231019150632_ChangeLoginType")]
+    partial class ChangeLoginType
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

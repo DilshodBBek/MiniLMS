@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MiniLMS.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class initDb : Migration
+    public partial class init1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -23,7 +23,7 @@ namespace MiniLMS.Infrastructure.Migrations
                     BirthDate = table.Column<DateOnly>(type: "date", nullable: true),
                     Gender = table.Column<byte>(type: "smallint", nullable: false),
                     PhoneNumber = table.Column<string>(type: "text", nullable: true),
-                    Login = table.Column<string>(type: "text", nullable: false),
+                    Login = table.Column<int>(type: "integer", nullable: false),
                     Password = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
@@ -42,7 +42,7 @@ namespace MiniLMS.Infrastructure.Migrations
                     BirthDate = table.Column<DateOnly>(type: "date", nullable: true),
                     Gender = table.Column<byte>(type: "smallint", nullable: false),
                     PhoneNumber = table.Column<string>(type: "text", nullable: true),
-                    Login = table.Column<string>(type: "text", nullable: false),
+                    Login = table.Column<int>(type: "integer", nullable: false),
                     Password = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>

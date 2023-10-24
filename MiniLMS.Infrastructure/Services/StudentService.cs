@@ -7,11 +7,13 @@ namespace MiniLMS.Infrastructure.Services;
 public class StudentService : IStudentService
 {
     private readonly MiniLMSDbContext _context;
-
-    public StudentService(MiniLMSDbContext context)
+    private readonly ITestService _test;
+    public StudentService(MiniLMSDbContext context, ITestService test)
     {
         _context = context;
+        _test = test;
     }
+
 
     public async Task<Student> CreateAsync(Student entity)
     {
@@ -31,9 +33,14 @@ public class StudentService : IStudentService
         return true;
     }
 
+    public void Get()
+    {
+        Console.WriteLine(_test.Random);
+    }
+
     public Task<IEnumerable<Student>> GetAllAsync()
     {
-        IEnumerable<Student> students = _context.Students.AsNoTracking().AsEnumerable();
+        IEnumerable<Student> students = _context.Students.Include(x=>x.Teachers).AsNoTracking().AsEnumerable();
         return Task.FromResult(students);
     }
 

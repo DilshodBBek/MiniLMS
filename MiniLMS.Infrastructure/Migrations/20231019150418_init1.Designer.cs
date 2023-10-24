@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MiniLMS.Infrastructure.DataAccess;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MiniLMS.Infrastructure.Migrations
 {
     [DbContext(typeof(MiniLMSDbContext))]
-    partial class MiniLMSDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231019150418_init1")]
+    partial class init1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -40,9 +43,8 @@ namespace MiniLMS.Infrastructure.Migrations
                     b.Property<byte>("Gender")
                         .HasColumnType("smallint");
 
-                    b.Property<string>("Login")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int>("Login")
+                        .HasColumnType("integer");
 
                     b.Property<string>("Major")
                         .IsRequired()
@@ -78,9 +80,8 @@ namespace MiniLMS.Infrastructure.Migrations
                     b.Property<byte>("Gender")
                         .HasColumnType("smallint");
 
-                    b.Property<string>("Login")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int>("Login")
+                        .HasColumnType("integer");
 
                     b.Property<string>("Password")
                         .IsRequired()
